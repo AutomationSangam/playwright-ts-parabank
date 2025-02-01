@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "moduleResolution": "Node",
+        "baseUrl": ".",
+        "paths": {
+            "@pages/*": ["pageObjects/*"],
+            "@constants/*": ["constants/*"],
+        }
+    }
+}

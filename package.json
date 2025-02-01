@@ -1,0 +1,23 @@
+{
+  "name": "playwright-ts-parabank",
+  "version": "1.0.0",
+  "description": "This project has been created using Playwright and Typescript.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AutomationSangam/playwright-ts-parabank.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AutomationSangam/playwright-ts-parabank/issues"
+  },
+  "homepage": "https://github.com/AutomationSangam/playwright-ts-parabank#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^9.4.0",
+    "@playwright/test": "^1.50.0",
+    "@types/node": "^22.12.0"
+  }
+}
