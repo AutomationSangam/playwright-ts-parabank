@@ -4,8 +4,8 @@
         "moduleResolution": "Node",
         "baseUrl": ".",
         "paths": {
-            "@pages/*": ["pageObjects/*"],
-            "@constants/*": ["constants/*"],
+            "@pages/*": ["src/pageObjects/*"],
+            "@constants/*": ["src/constants/*"],
         }
     }
 }

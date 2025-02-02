@@ -1,5 +1,5 @@
 import { Locator, Page } from "@playwright/test";
-import testDataFaker from "testData/testDataFaker";
+import testDataFaker from "src/testData/testDataFaker";
 
 export default class ParaBankSignUpPage{
     constructor(private page:Page){}

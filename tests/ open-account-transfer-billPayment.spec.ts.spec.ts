@@ -1,4 +1,4 @@
-import accountServicesConstants from "@constants/accountServices.constant";
+import accountServicesConstants from "src/constants/accountServices.constant";
 import AccountHomePage from "@pages/accountServices/accountHome.page";
 import AccountOpenedPage from "@pages/accountServices/accountOpened.page";
 import AccountsOverviewPage from "@pages/accountServices/accountsOverview.page";
@@ -10,8 +10,8 @@ import ParaBankLoginPage from "@pages/paraBankLogin.page";
 import ParaBankSignUpPage from "@pages/paraBankSignUp.page";
 import ParaBankWelcomePage from "@pages/paraBankWelcome.page";
 import test, { expect } from "@playwright/test";
-import testData from "testData/testData";
-import testDataFaker from "testData/testDataFaker";
+import testData from "src/testData/testData";
+import testDataFaker from "src/testData/testDataFaker";
 
 let paraBankLoginPage:ParaBankLoginPage,paraBankSignUpPage:ParaBankSignUpPage,paraBankWelcomePage:ParaBankWelcomePage,accountHomePage:AccountHomePage,accountOpenedPage:AccountOpenedPage,transferFundsPage:TransferFundsPage,billPayPage:BillPayPage,accountsOverviewPage:AccountsOverviewPage,openNewAccountPage:OpenNewAccountPage,findTransactionsPage:FindTransactionsPage
 let registrationData=testDataFaker.getRegistrationData()
@@ -33,8 +33,7 @@ test.beforeEach(async ({ page }) => {
   findTransactionsPage=new FindTransactionsPage(page)
   await page.goto('/')
   await paraBankLoginPage.registerButton.click()
-  
-  // await page.reload()
+  // await page.reload() //this can be enabled when you continuously getting error for username already exists
   userName=await paraBankSignUpPage.fillRegistrationForm(
     registrationData.firstName,
     registrationData.lastName, 
