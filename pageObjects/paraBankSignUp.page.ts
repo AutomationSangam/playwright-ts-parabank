@@ -28,11 +28,11 @@ export default class ParaBankSignUpPage{
     confirmPasswordText:Locator=this.page.getByText('Confirm:');
     confirmPasswordInput:Locator=this.page.locator('input[id="repeatedPassword"]');
     registerButton:Locator=this.page.locator('input[value="Register"]');
-    userNameExistsError:Locator=this.page.locator('#customer.username.errors')
+    userNameExistsError:Locator=this.page.getByText('This username already exists.')
 
     async fillRegistrationForm(firstName:string,lastName:string,address:string,city:string,state:string,zipCode:string,phoneNumber:string,ssn:string,username:string,password:string){
         let userName=username
-        let i=0
+        let flag=true
         await this.firstNameInput.fill(firstName)
         await this.lastNameInput.fill(lastName)
         await this.addressInput.fill(address)
@@ -42,15 +42,19 @@ export default class ParaBankSignUpPage{
         await this.phoneNumberInput.fill(phoneNumber)
         await this.ssnInput.fill(ssn)
         const url=this.page.url()
-        do{
-        if(i==1) userName=testDataFaker.generateUniqueUsername()
+        while(flag){
         await this.usernameInput.fill(userName)
         await this.passwordInput.fill(password)
         await this.confirmPasswordInput.fill(password)
         await this.registerButton.click()
-        i=1
-        await this.page.waitForTimeout(3000)
-        }while(await this.userNameExistsError.isVisible())
+        try{
+            await this.userNameExistsError.waitFor({state:'visible',timeout:5000})
+            userName=testDataFaker.generateUniqueUsername()
+            flag=true
+        }catch(e){
+            flag=false
+        }
+        }
         return userName;
     }
 

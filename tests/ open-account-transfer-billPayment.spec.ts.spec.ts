@@ -33,7 +33,8 @@ test.beforeEach(async ({ page }) => {
   findTransactionsPage=new FindTransactionsPage(page)
   await page.goto('/')
   await paraBankLoginPage.registerButton.click()
-  await page.reload()
+  
+  // await page.reload()
   userName=await paraBankSignUpPage.fillRegistrationForm(
     registrationData.firstName,
     registrationData.lastName, 
