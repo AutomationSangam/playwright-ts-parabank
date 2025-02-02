@@ -19,4 +19,8 @@ export default class AccountHomePage{
      products:Locator=this.page.locator('.leftmenu').getByText('Products',{exact:true});
      locations:Locator=this.page.locator('.leftmenu').getByText('Locations',{exact:true});
      adminPage:Locator=this.page.locator('.leftmenu').getByText('Admin Page',{exact:true});
+
+     homePage:Locator=this.page.getByRole('link',{name:'home',exact:true});
+     aboutLink:Locator=this.page.getByRole('link',{name:'about',exact:true});
+     contactLink:Locator=this.page.getByRole('link',{name:'contact',exact:true});
 }
